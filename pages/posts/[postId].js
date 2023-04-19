@@ -1,6 +1,14 @@
+import { useRouter } from "next/router";
 
 function PostItem({post}) {
-    
+    // const router = useRouter()
+    // if(router.isFallback){
+    //     return(
+    //         <div>
+    //             <h1>Loading...</h1>
+    //         </div>
+    //     )
+    // }
   return (
     <div>
         <h1>{post.id}{post.title}</h1>
@@ -29,18 +37,18 @@ export async function getStaticPaths(){
   const data = await response.json();
 
   const paths = data.map(path => {
-    return {
-        params: {postId: `${ path.id}`}
-    }
+    return (
+        {params: {postId: `${path.id}`}}
+    )
   })
-    return{
+
+    return {
         paths,
         // paths: [
         //     {params: {postId : '1'}},
         //     {params: {postId : '2'}},
         //     {params: {postId : '3'}},
-            
         // ],
-        fallback: "blocking" //fallback value can be false(this will throw and error page for values not prerendered), true(this will show a UI denoted in the condition router.isFallback), and blocking (this will freeze the page until data is ready)
+        fallback: "blocking" //the possible values of fallback are false, here the 404 page is rendered if the page is not preRendered, then true: here a UI in the condition router.isFallback is rendered and finally blocking here the UI freezes until HTML is ready
     }
 }
