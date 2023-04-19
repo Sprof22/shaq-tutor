@@ -1,7 +1,7 @@
 
 const ErrorPage = () => {
   return (
-    <div>THis is no error</div>
+    <h1>This is definetly not the Error PAGE we made</h1>
   )
 }
 
