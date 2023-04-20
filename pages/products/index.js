@@ -1,15 +1,31 @@
-import { StaticGenerationAsyncStorageWrapper } from "next/dist/server/async-storage/static-generation-async-storage-wrapper"
-import Link from "next/link"
+import React from 'react'
 
+function ProductLIst({products}) {
+  return (
+    <div>
+        <h1>Here are the list of products</h1>
+        {products.map(product => {
+            return (
+                <div key={product.id}>
+                    <h1>{product.id} {product.title}</h1>
+                    <p>{product.price} {product.description}</p>
+                    <hr />
+                </div>
+            )
+        })}
+    </div>
+  )
+}
 
-const Products = () => {
-    return (
-      <div>
-        <Link href={'products/product1'}>Product 1</Link>
-        <Link href={'products/product2'}>Product 2</Link>
-        <Link href={'products/product3'}>Product 3</Link>
-      </div>
-    )
-    
-  }
-  export default Products
+export default ProductLIst
+
+export async function getStaticProps(){
+    const response = await fetch ("http://localhost:3004/products")
+    const data = await response.json()
+
+    return {
+        props: {
+            products: data
+        }
+    }
+}

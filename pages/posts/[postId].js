@@ -36,19 +36,19 @@ export async function getStaticPaths(){
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await response.json();
 
-  const paths = data.map(path => {
-    return (
-        {params: {postId: `${path.id}`}}
-    )
-  })
+//   const paths = data.map(path => {
+//     return (
+//         {params: {postId: `${path.id}`}}
+//     )
+//   })
 
     return {
-        paths,
-        // paths: [
-        //     {params: {postId : '1'}},
-        //     {params: {postId : '2'}},
-        //     {params: {postId : '3'}},
-        // ],
+        // paths,
+        paths: [
+            {params: {postId : '1'}},
+            {params: {postId : '2'}},
+            {params: {postId : '3'}},
+        ],
         fallback: "blocking" //the possible values of fallback are false, here the 404 page is rendered if the page is not preRendered, then true: here a UI in the condition router.isFallback is rendered and finally blocking here the UI freezes until HTML is ready
     }
 }
