@@ -5,7 +5,7 @@ function NewArticleList({newsArticles}) {
         <h1>List of News Articles</h1>
         {newsArticles.map(article => {
             return (
-                <div>
+                <div key={article.id}>
                     <h1>{article.id} {article.title} {article.category}</h1>
                     <p>{article.description}</p>
                 </div>

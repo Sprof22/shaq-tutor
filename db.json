@@ -1,9 +1,9 @@
 {
   "dashboard": {
-    "posts": 5,
-    "likes": 100,
-    "followers": 23,
-    "following": 34
+    "posts": 10,
+    "likes": 22,
+    "followers": 2,
+    "following": 12
   },
   "users": [
     {
