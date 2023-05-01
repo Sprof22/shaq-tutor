@@ -1,0 +1,21 @@
+.layout-header{
+    background-color: blue;
+    font-size: 48px;
+    text-align: center;
+    padding: 30px;
+}
+
+
+.layout-footer{
+    background-color: rgb(59, 135, 24);
+    font-size: 48px;
+    text-align: center;
+    padding: 30px;
+} 
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
